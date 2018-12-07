@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 export default class App extends Component {
   state = {
-    data: {people:[]}
+    data: {
+      people:[]
+    }
   };
 
   componentDidMount() {
@@ -17,10 +19,9 @@ export default class App extends Component {
         {/* Iterate over the JSON api */}
         {this.state.data.people.map((person, i) => {
 
-          {/* What to render */}
           return(
             <div key={i}>
-            
+
               {/* Render the name */}
               <h1>{person.name}</h1>
 
