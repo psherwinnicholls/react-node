@@ -1,11 +1,20 @@
 const express = require("express");
+const fs = require('fs')
+
 const bodyParser = require("body-parser");
-const data = require("./data.json");
 const path = require("path");
 const app = express();
 const port = process.env.PORT || 5000;
+
+const YAML = require('yaml')
+const file = fs.readFileSync('./data.yml', 'utf8')
+const data = YAML.parse(file)
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
 // API calls
 app.get("/api", (req, res) => {
   res.send(data);
